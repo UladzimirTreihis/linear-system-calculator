@@ -33,7 +33,7 @@ b2 = ...
 
 ...
 
-The output is in the following format:
+# The output is in the following format:
 
 '''
 
