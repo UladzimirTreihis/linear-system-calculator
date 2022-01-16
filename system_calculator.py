@@ -44,8 +44,11 @@ for i in range(unknowns):
         except:
             continue
 
+print("\n")
+print("The solutions are the following: \n")
+for i in range(unknowns):
+    print("x{}".format(i) + " = " + str(coefficients_dict[i]))
 
-print(coefficients_dict)
 
     
 
