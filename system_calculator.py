@@ -5,7 +5,7 @@ for i in range(unknowns):
     c = chr(97 + i)
     coefficients_dict_2 = {}
     for j in range(unknowns+1):
-        coefficient = int(input("{}{} = ".format(c, j)))
+        coefficient = float(input("{}{} = ".format(c, j)))
         coefficients_dict_2[j] = coefficient
     coefficients_dict[i] = coefficients_dict_2
 
