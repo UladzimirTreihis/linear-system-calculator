@@ -9,19 +9,25 @@ for i in range(unknowns):
         coefficients_dict_2[j] = coefficient
     coefficients_dict[i] = coefficients_dict_2
 
+if coefficients_dict[0][0] == 0:
+    zero = True
+    for i in range(unknowns):
+        if zero == True:
+            if coefficients_dict[i][0] != 0:
+                for j in range(unknowns+1):
+                    temporary = coefficients_dict[0][j]
+                    coefficients_dict[0][j] = coefficients_dict[i][j]
+                    coefficients_dict[i][j] = temporary
+                zero = False
+        else:
+            continue
 
 # Elimination until upper triangular
 for starting_line in range(1, unknowns):
 
     for i in range(starting_line, unknowns):
 
-        non_zero = False
         non_zero_coefficient_position = starting_line - 1
-        while non_zero == False:
-            if coefficients_dict[starting_line-1][non_zero_coefficient_position] != 0:
-                non_zero = True
-            else: 
-                non_zero_coefficient_position += 1
         
         elimination_coefficient = -1 * coefficients_dict[i][non_zero_coefficient_position] / coefficients_dict[starting_line-1][non_zero_coefficient_position]
 
