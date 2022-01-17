@@ -9,15 +9,17 @@ for i in range(unknowns):
         coefficients_dict_2[j] = coefficient
     coefficients_dict[i] = coefficients_dict_2
 
+#Check whether the first linear equation starts with coefficient 0
+#Substitude with a non-zero if so in order to prevent division by zero error. 
 if coefficients_dict[0][0] == 0:
     zero = True
     for i in range(unknowns):
         if zero == True:
             if coefficients_dict[i][0] != 0:
-                for j in range(unknowns+1):
-                    temporary = coefficients_dict[0][j]
-                    coefficients_dict[0][j] = coefficients_dict[i][j]
-                    coefficients_dict[i][j] = temporary
+
+                temporary = coefficients_dict[0]
+                coefficients_dict[0] = coefficients_dict[i]
+                coefficients_dict[i] = temporary
                 zero = False
         else:
             continue
